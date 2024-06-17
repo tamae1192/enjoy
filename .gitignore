@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.zip
+*.png
+*.svg
+*.jpg
+
+# C extensions
+*.so
+.DS_Store
+# Distribution / packaging
+.Python
+
+.env
+
+venv/
+
