@@ -3,7 +3,7 @@ import os
 from PIL import Image
 import argparse
 
-def compress_images_in_directory(src_dir:str, new_dir:str, quality=70):
+def recompress_images_in_directory(src_dir:str, new_dir:str, quality=70):
     """
     ディレクトリ内の全ての画像を指定されたスケールでリサイズします。
 
@@ -52,7 +52,7 @@ def check_float_range(value:str) -> float:
     
     return fvalue
 
-def resize_images_in_directory(src_dir:str, new_dir:str, scale=0.75):
+def resize_images_in_directory(src_dir:str, new_dir:str, scale=0.5):
     """
     ディレクトリ内の全ての画像を指定されたスケールでリサイズします。
 
@@ -108,11 +108,31 @@ def check_range(value:str) -> int:
         raise argparse.ArgumentTypeError(f"{value} is an invalid integer value. It must be between 0 and 100.")
     return ivalue
 
+def convert_to_png(input_dir:str, output_dir:str) -> None:
+    
+    # 出力フォルダが存在しない場合は作成
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    # 入力フォルダ内のすべてのJPEGファイルを変換
+    for filename in os.listdir(input_dir):
+        if filename.lower().endswith('.jpg') or filename.lower().endswith('.jpeg'):
+            input_path = os.path.join(input_dir, filename)
+            output_path = os.path.join(output_dir, os.path.splitext(filename)[0] + '.png')
+
+            # 画像を読み込み
+            image = Image.open(input_path)
+
+            # PNG形式で保存
+            image.save(output_path, 'PNG')
+
+            print(f"Converted {input_path} to {output_path}")
+    return 
+
 
 def get_argument():
     parser = argparse.ArgumentParser(description="Process two named arguments.")
     parser.add_argument("--src_dir", required=False, help="")
-    parser.add_argument("--compressed_dir", required=False, help="")
     parser.add_argument("--resize", required=False, help="")
     parser.add_argument("--requality", required=False, help="")
     parser.add_argument("--scale", type=check_float_range, required=False, help="")
@@ -125,10 +145,10 @@ if __name__ == "__main__":
     args = get_argument()
 
     src_dir = args.src_dir
-    compressed_dir = args.compressed_dir
+    compressed_dir = "compress"
 
     if args.resize:
         resize_images_in_directory(src_dir,compressed_dir,args.scale)
     
     if args.requality:
-        compress_images_in_directory(src_dir,compressed_dir,args.quality)
+        recompress_images_in_directory(src_dir,compressed_dir,args.quality)

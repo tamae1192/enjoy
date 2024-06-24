@@ -9,8 +9,9 @@ __pycache__/
 *.html
 
 # テスト用のディレクトリを除外
-image_modules/compress_test/*
+image_modules/compress/*
 image_modules/download_test/*
+image_modules/convert/*
 
 # C extensions
 *.so
