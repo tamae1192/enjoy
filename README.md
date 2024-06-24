@@ -11,7 +11,7 @@ cd image_modules
 pip install -r requirements.txt
 ```
 
-# 検証済み環境
+# 検証済み環境-Validated Environment
 MacBook Air M2 2022
 
 # 使い方-How to use
