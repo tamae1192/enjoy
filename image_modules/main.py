@@ -1,5 +1,6 @@
 import argparse
 import downloader 
+import delete_file
 import compress_image
 
 def get_argument():
@@ -20,10 +21,10 @@ if __name__ == "__main__":
     url = args.url
     compressed_dir = args.compressed_dir
     if args.delete_dir:
-        downloader.delete_all_files_in_directory(src_dir)
-        downloader.delete_all_files_in_directory(compressed_dir)    
+        delete_file.delete_all_files_in_directory(src_dir)
+        delete_file.delete_all_files_in_directory(compressed_dir)    
 
 
-    downloader.download_images(url, src_dir)
+    downloader.download_notion_images(url, src_dir)
 
     compress_image.resize_images_in_directory(src_dir,compressed_dir)

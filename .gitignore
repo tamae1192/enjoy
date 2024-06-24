@@ -6,6 +6,11 @@ __pycache__/
 *.png
 *.svg
 *.jpg
+*.html
+
+# テスト用のディレクトリを除外
+image_modules/compress_test/*
+image_modules/download_test/*
 
 # C extensions
 *.so

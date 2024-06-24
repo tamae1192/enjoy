@@ -21,7 +21,7 @@ MacBook Air M2 2022
 # コマンド例-Command example
 ## パターン1 特定のURL上の画像をダウンロードし圧縮
 ```bash
-python main.py --url <<https://*****>> --src_dir download_test --compressed_dir compress_test --delete_dir True
+python main.py --url https://***** --src_dir download_test --compressed_dir compress_test
 ```
 ※ディレクトリやURLの指定は自由。ない場合は新たに作成される。絶対パス指定ではない場合はpythonの実行ディレクトリをルートとした位置に作成される
 
