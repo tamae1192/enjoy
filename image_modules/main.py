@@ -26,4 +26,4 @@ if __name__ == "__main__":
 
     downloader.download_notion_images(url, src_dir)
 
-    compress_image.recompress_images_in_directory(src_dir,compressed_dir)
+    compress_image.resize_images_in_directory(src_dir,compressed_dir)
