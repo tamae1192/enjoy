@@ -52,7 +52,7 @@ def check_float_range(value:str) -> float:
     
     return fvalue
 
-def resize_images_in_directory(src_dir:str, new_dir:str, scale=0.5):
+def resize_images_in_directory(src_dir:str, new_dir:str, scale=0.7):
     """
     ディレクトリ内の全ての画像を指定されたスケールでリサイズします。
 
