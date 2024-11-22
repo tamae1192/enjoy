@@ -26,7 +26,7 @@ def resize_images(input_dir, output_dir, resolutions):
                 with Image.open(input_path) as img:
                     for width, height in resolutions:
                         # リサイズ
-                        resized_img = img.resize((width, height), Image.ANTIALIAS)
+                        resized_img = img.resize((width, height), Image.LANCZOS)
                         
                         # 保存ファイル名の作成
                         output_subdir = os.path.join(output_dir, f"{width}x{height}")
@@ -42,8 +42,8 @@ def resize_images(input_dir, output_dir, resolutions):
 
 if __name__ == "__main__":
     # 入力ディレクトリ、出力ディレクトリ、および解像度を指定
-    input_directory = "./input_images"  # JPGファイルが格納されているディレクトリ
+    input_directory = "/Users/"  # JPGファイルが格納されているディレクトリ 例：/Users
     output_directory = "./output_images"  # リサイズした画像を保存するディレクトリ
-    target_resolutions = [(2688, 1512), (2592, 1944)]  # 目的の解像度
+    target_resolutions = [(1512, 2688), (1944, 2592)]  # 目的の解像度
 
     resize_images(input_directory, output_directory, target_resolutions)
